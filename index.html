@@ -21,7 +21,7 @@
     <div class="d-block p-3">
         <div class="row p-5">
             <h1 class="display-3 text-lg-center">
-                ParrotTTS: Text-to-speech synthesis exploiting disentangled self-supervised representations
+                RobustL2S: Speaker-Specific Lip-to-Speech Synthesis via Self-Supervised Learning
             </h1>
         </div>
         <div class="row p-2">
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <p class="fs-5">
-                We present ParrotTTS, a modularized text-to-speech synthesis model leveraging disentangled self-supervised speech representations. It can train a multi-speaker variant effectively using transcripts from a single speaker. ParrotTTS adapts to a new language in low resource setup and generalizes to languages not seen while training the self-supervised backbone. Moreover, without training on bilingual or parallel examples, ParrotTTS can transfer voices across languages while preserving the speaker-specific characteristics, e.g., synthesizing fluent Hindi speech using a French speaker’s voice and accent. We present extensive results in monolingual and multi-lingual scenarios. ParrotTTS outperforms state-of-the-art multi-lingual TTS models using only a fraction of paired data as latter. Speech samples from ParrotTTS can be found at https://parrot-tts.github.io/tts/
+                We present RobustL2S, a lip-to-speech synthesis model leveraging disentangled self-supervised audio and audio-visual representations. We present extensive results in constrained and unconstrained settings. 
             </p>
         </div>
 
@@ -47,56 +47,32 @@
         <div class="row p-2"></div>
         <div class="row">
             <figure class="figure text-center">
-                <img src="resources/tts_tth.png" alt="..." class="figure-img">
-                <figcaption class="figure-caption text-center">(a) Traditional TTS and (b) ParrotTTS</figcaption>
+                <img src="samples/lip2speech.png" alt="..." class="figure-img">
+                <figcaption class="figure-caption text-center">The proposed RobustL2S model utilizes a Lip and Speech encoder to extract SSL representations from lip sequences and their corresponding speech. A Seq2Seq model is employed to map the lip representations to speech representations, which are then decoded to synthesize speech  </figcaption>
             </figure>
         </div>
     </div>
 
     <div class="d-block p-3">
         <div class="row">
-            <h3>Comparing samples for cross-lingual speech synthesis</h3>
+            <h3>Comparing samples Lip2Wav dataset</h3>
         </div>
-        <!-- TODO: Insert Carousel to show the exciting samples -->
-        <!-- <div class="row">
-            <div id="sample-highlights" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item-active">
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
+     
 
         <div class="row d-flex table-responsive overflow-auto">
             <table class="table table-bordered m-3">
-                <!-- <h5 class="text-center fs-4">Comparing samples for cross-lingual speech synthesis</h5> -->
-                <!-- <caption class="text-center fs-4">Comparing samples for cross-lingual speech synthesis</caption> -->
                 <thead>
                     <tr class="flex-row">
-                        <th class="col-2 text-center">Source Text</th>
-                        <th class="col-1 text-center">Text Language</th>
-                        <th class="col-1 text-center">Speaker Language</th>
-                        <th class="col-2 text-center">Reference Voice</th>
-                        <th class="col-2 text-center">Fastspeech2</th>
-                        <th class="col-2 text-center">Meta-TTS</th>
-                        <th class="col-2 text-center">ParrotTTS (Ours)</th>
+                        <th class="col-2 text-center">Ground-truth</th>
+                        <th class="col-1 text-center">Lip2Wav</th>
+                        <th class="col-1 text-center">FastLTS</th>
+                        <th class="col-2 text-center">RobustL2S</th> 
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="flex-row">
-                        <td>Capítulo Tercero de Bailen.</td>
                         <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            Hindi
-                        </td>
-                        <td class="text-center">
-                            <video controls src="samples/chem_gt.mp4"></video>
+                            <video  width="320" height="300" controls src="samples/chem_gt.mp4"></video>
                         </td>
                         <td class="text-center">
                             <audio controls src="resources/CL/fs2/Hindi_M_sp_tux_bailen_03_perezgaldos_f000001.wav"></audio>
