@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="">
+<body class="" style="margin: 100px;">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <div class="d-block p-3">
@@ -35,7 +35,18 @@
         </div>
         <div class="row">
             <p class="fs-5">
-                We present RobustL2S, a lip-to-speech synthesis model leveraging disentangled self-supervised audio and audio-visual representations. We present extensive results in constrained and unconstrained settings. 
+                We present RobustL2S, a lip-to-speech synthesis model leveraging disentangled 
+                self-supervised audio and audio-visual representations.   
+                We propose a modularized framework for Lip-to-Speech synthesis. First, a non-
+                autoregressive sequence-to-sequence model maps self-supervised
+                visual features to a representation of disentangled speech content.
+                A vocoder then converts the speech features into raw waveforms. 
+                We present extensive results in constrained and unconstrained settings.
+                Extensive evaluations confirm the effectiveness of our setup,
+                achieving state-of-the-art performance on the unconstrained
+                Lip2Wav dataset and the constrained GRID and TCD-TIMIT
+                datasets. 
+                 
             </p>
         </div>
 
@@ -47,188 +58,369 @@
         <div class="row p-2"></div>
         <div class="row">
             <figure class="figure text-center">
-                <img src="samples/lip2speech.png" alt="..." class="figure-img">
+                <img src="samples/lip2speech.png" alt="..." class="figure-img" style="width: 700px;" >
                 <figcaption class="figure-caption text-center">The proposed RobustL2S model utilizes a Lip and Speech encoder to extract SSL representations from lip sequences and their corresponding speech. A Seq2Seq model is employed to map the lip representations to speech representations, which are then decoded to synthesize speech  </figcaption>
             </figure>
         </div>
     </div>
 
     <div class="d-block p-3">
+
+        <div class="row p-2">
+        </div>
+
+
+        <div class="row">
+            <h3>Our samples on Lip2Wav dataset</h3>
+        </div>
+     
+
+        <div class="row d-flex ">
+            <table class="table  m-2">
+                <thead>
+                    <tr class="flex-row">
+                        <th class="col-2 text-center">Ground-truth</th>
+                        <th class="col-1 text-center">Input</th>
+                        <th class="col-1 text-center">Output of RobustL2S</th>
+                    </tr>
+                </thead>
+                <tbody>  
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/cut-1_0_0_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/cut-1_0_0_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="250" height="250"  controls src="samples/lip2wav/cut-1_0_0_robustl2s.mp4"></video>
+                        </td>
+                    </tr> 
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/cut-2_0_5_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/cut-2_0_5_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="250" height="250"  controls src="samples/lip2wav/cut-2_0_5_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/cut-6_0_4-5_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/cut-6_0_4-5_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="250" height="250"  controls src="samples/lip2wav/cut-6_0_4-5_robustl2s.mp4"></video>
+                        </td>
+                    </tr> 
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/lubThC5bL7041_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/lubThC5bL7041_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="250" height="250"  controls src="samples/lip2wav/lubThC5bL7041_robustl2s.mp4"></video>
+                        </td>
+                    </tr> 
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/S0mj14rWm3w46_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/S0mj14rWm3w46_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="250" height="250"  controls src="samples/lip2wav/S0mj14rWm3w46_robustl2s.mp4"></video>
+                        </td>
+                    </tr>        
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/9TFnjJkfqmA100_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/9TFnjJkfqmA100_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="250" height="250"  controls src="samples/lip2wav/9TFnjJkfqmA100_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250"  controls src="samples/lip2wav/9TFnjJkfqmA153_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/9TFnjJkfqmA153_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/9TFnjJkfqmA153_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250"  controls src="samples/lip2wav/4Fy7K7xxtHU40_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/4Fy7K7xxtHU40_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/4Fy7K7xxtHU40_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250"  controls src="samples/lip2wav/4Fy7K7xxtHU78_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/4Fy7K7xxtHU78_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/4Fy7K7xxtHU78_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250"  controls src="samples/lip2wav/xMubwlXSJf8050_0_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/xMubwlXSJf8050_0_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/xMubwlXSJf8050_0_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="250" height="250"  controls src="samples/lip2wav/xMubwlXSJf8070_0_gt.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="100" height="100" controls src="samples/lip2wav/xMubwlXSJf8070_0_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="250" height="250" controls src="samples/lip2wav/xMubwlXSJf8070_0_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row p-2">
+        </div>
+
+        <div class="row">
+            <h3>Our samples on GRID dataset</h3>
+        </div>
+     
+
+        <div class="row d-flex ">
+            <table class="table  m-2">
+                <thead>
+                    <tr class="flex-row">
+                        <th class="col-2 text-center">Ground-truth</th>
+                        <th class="col-1 text-center">Input</th>
+                        <th class="col-1 text-center">Output of RobustL2S</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/prbp9s.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/prbp9s_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/prbp9s_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/pwbq4n.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/pwbq4n_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/pwbq4n_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/lrbe6s.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/lrbe6s_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/lrbe6s_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/prbc9n.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/prbc9n_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/prbc9n_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/swwm5s.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/swwm5s_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/swwm5s_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/lgbp9s.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/lgbp9s_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/lgbp9s_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/bwwt9p.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/bwwt9p_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/bwwt9p_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video   controls src="samples/grid/lbax5n.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/grid/lbax5n_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video controls src="samples/grid/lbax5n_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="row p-2">
+        </div>
+
+        <div class="row">
+            <h3>Our samples on TCD-TIMIT dataset</h3>
+        </div>
+     
+
+        <div class="row d-flex ">
+            <table class="table  m-2">
+                <thead>
+                    <tr class="flex-row">
+                        <th class="col-2 text-center">Ground-truth</th>
+                        <th class="col-1 text-center">Input</th>
+                        <th class="col-1 text-center">Output of RobustL2S</th>
+                    </tr>
+                </thead>
+                <tbody>             
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="340" height="340"  controls src="samples/timit/sx65.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/timit/sx65_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="340" height="340"  controls src="samples/timit/sx65_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center">
+                            <video width="340" height="340"  controls src="samples/timit/si577.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/timit/si577_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video width="340" height="340" controls src="samples/timit/si577_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                    <tr class="flex-row">
+                        <td class="text-center" >
+                            <video width="340" height="340"   controls src="samples/timit/sx279.mp4"></video>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <video width="150" height="150" controls src="samples/timit/sx279_cropped.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <video  width="340" height="340"  controls src="samples/timit/sx279_robustl2s.mp4"></video>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
         <div class="row">
             <h3>Comparing samples on Lip2Wav dataset</h3>
         </div>
      
 
-        <div class="row d-flex table-responsive overflow-auto">
-            <table class="table table-bordered m-3">
+        <div class="row d-flex ">
+            <table class="table  m-2">
                 <thead>
                     <tr class="flex-row">
                         <th class="col-2 text-center">Ground-truth</th>
                         <th class="col-1 text-center">Lip2Wav</th>
                         <th class="col-1 text-center">FastLTS</th>
-                        <th class="col-2 text-center">RobustL2S</th> 
+                        <th class="col-2 text-center">RobustL2S (Ours)</th> 
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="flex-row">
                         <td class="text-center">
-                            <video  width="320" height="320" controls src="samples/chem_gt.mp4"></video>
+                            <video  width="280" height="280" controls src="samples/comparison/chess_gt.mp4"></video>
                         </td>
                         <td class="text-center">
-                            <video width="320" height="320" controls src="samples/chem_lip2wav.mp4"></video>
+                            <video width="280" height="280" controls src="samples/comparison/chess_lip2wav.mp4"></video>
                         </td>
                         <td class="text-center">
-                            <video width="320" height="320" controls src="samples/chem_fastlts.mp4"></video>
+                            <video width="280" height="280" controls src="samples/comparison/chess_fastlts.mp4"></video>
                         </td>
                         <td class="text-center">
-                            <video width="320" height="320" controls src="samples/chem_robustl2s.mp4"></video>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>पाँचवीं पंचवर्षीय योजना में इसके कार्यक्षेत्र को और विस्तृत किया गया|</td>
-                        <td class="text-center">
-                            Hindi
-                        </td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/reference/french_siwis_emph_book_s01_0047.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/fs2/french_siwis_hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/char/french_siwis_hi_m_books_00150.wav"></audio>
+                            <video width="280" height="280" controls src="samples/comparison/chess_robustl2s.mp4"></video>
                         </td>
                     </tr>
                     <tr class="flex-row">
-                        <td>पीक कर्ज वितरण कमी असलेल्या बँकांना जिल्हा प्रशासनाने कारणे दाखवा नोटीस बजवाव्यात.</td>
                         <td class="text-center">
-                            Marathi
+                            <video  width="280" height="280" controls src="samples/comparison/chem_gt.mp4"></video>
                         </td>
                         <td class="text-center">
-                            German
+                            <video width="280" height="280" controls src="samples/comparison/chem_lip2wav.mp4"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/CL/reference/ge_rebeccabraunertplunkett_das_letzte_marchen_001_f000014.wav"></audio>
+                            <video width="280" height="280" controls src="samples/comparison/chem_fastlts.mp4"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/CL/fs2/German_rebecca_braunert_plunkett_mr_f_finance_02816.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/mr_f_finance_02816.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/char/German_rebecca_braunert_plunkett_mr_f_finance_02816.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Je leur ai donc probablement fait manger non pas du bœuf, mais du cheval.</td>
-                        <td class="text-center">
-                            German
-                        </td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/reference/french_siwis_emph_book_s01_0047.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/fs2/German_eva_k_french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/fr_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/phn/German_eva_k_french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>The middle yard, as far as its limits would permit, was appropriated to felons and transports. The wards here were generally very crowded.</td>
-                        <td class="text-center">
-                            English
-                        </td>
-                        <td class="text-center">
-                            Marathi
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/reference/mr_f_agri_00016.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/fs2/Marathi_F_en_ljspeech_LJ003_0082.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/en_ljspeech_LJ003_0082.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/phn/Marathi_F_en_ljspeech_LJ003_0082.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>पाँचवीं पंचवर्षीय योजना में इसके कार्यक्षेत्र को और विस्तृत किया गया|</td>
-                        <td class="text-center">
-                            Hindi
-                        </td>
-                        <td class="text-center">
-                            English
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/reference/en_ljspeech_LJ001_0010.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/fs2/English_ljspeech_hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/char/English_ljspeech_hi_m_books_00150.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>पीक कर्ज वितरण कमी असलेल्या बँकांना जिल्हा प्रशासनाने कारणे दाखवा नोटीस बजवाव्यात.</td>
-                        <td class="text-center">
-                            Marathi
-                        </td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/reference/sp_tux_arapiles_01_perezgaldos_f000034.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/fs2/Spain_tux_mr_f_finance_02816.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/mr_f_finance_02816.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/char/Spain_tux_mr_f_finance_02816.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Je leur ai donc probablement fait manger non pas du bœuf, mais du cheval.</td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/reference/sp_karensavage_angelina_00_delgado_f000032.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/fs2/Spain_karen_savage_french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/fr_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/CL/phn/Spain_karen_savage_french_siwis_neut_parl_s02_0545.wav"></audio>
+                            <video width="280" height="280" controls src="samples/comparison/chem_robustl2s.mp4"></video>
                         </td>
                     </tr>
                 </tbody>
@@ -237,138 +429,12 @@
 
         <div class="row p-2"></div>
 
-        <!-- <div class="row">
-            <h3>Comparing samples with Meta-Learning TTS</h3>
-        </div>
 
-        <div class="row d-flex table-responsive overflow-hidden">
-            <table class="table table-bordered m-3">
-                
-                <thead>
-                    <tr class="flex-row">
-                        <th class="col-3 text-center">Source Text</th>
-                        <th class="col-1 text-center">Language</th>
-                        <th class="col-4 text-center">Meta-Model</th>
-                        <th class="col-4 text-center">ParrotTTS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="flex-row">
-                        <td>Sa compagnie, celle-là même qui avait fusillé le poète Jean Prouvaire, était la première du bataillon posté à l'angle de la rue.</td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/fr_test1.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/fr_test1.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Sous les plis de ce voile de fumée, et grâce à sa petitesse, il put s'avancer assez loin dans la rue sans être vu.</td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/fr_test2.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/fr_test2.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Javert eut un froncement de tige qui lui entrouvrit un coin de la bouche, et il murmura entre ses dents: Prends garde.</td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/fr_test3.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/fr_test3.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>daß Ihr glaubt, nur Dörtje könne Euch lieben? Geht, geht, Peregrinus, die Erfahrung wird Euch eines Bessern überzeugen.</td>
-                        <td class="text-center">
-                            German
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/ge_test1.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/ge_test1.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Das Abendrot zu Seta Ein japanischer Winter am Biwasee ist nicht so kalt und nicht so schneereich wie die meisten deutschen Winter,</td>
-                        <td class="text-center">
-                            German
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/ge_test2.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/ge_test2.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Vielleicht war auch sein Körper jetzt Luft, bezaubert von dem fahlen Gesicht des Dämons, der nun erscheinen sollte.</td>
-                        <td class="text-center">
-                            German
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/ge_test3.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/ge_test3.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Era aquello el cadáver de una cristiana torre, mudo e inerte como todos los cadáveres.</td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/sp_test1.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/sp_test1.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Por ese túnel ascendente tenían que introducirse los que iban a empeñar alguna cosa,.</td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/sp_test2.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/sp_test2.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>También dice que han desembarcado en Rosas mil hombres con armas que vienen de Mallorca. ¡Tres partidos!</td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/meta_webpage/sp_test3.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta/phn_compareONmetawebpage/sp_test3.wav"></audio>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> -->
 
         <div class="row p-2"></div>
 
         <div class="row">
-            <h3>Comparing samples for seen speakers</h3>
+            <h3>Comparing samples on GRID dataset</h3>
         </div>
 
         <div class="row d-flex table-responsive overflow-auto">
@@ -376,196 +442,53 @@
                 <!-- <caption class="text-center fs-4">Comparing samples for seen speakers</caption> -->
                 <thead>
                     <tr class="flex-row">
-                        <th class="col-3 text-center">Source Text</th>
-                        <th class="col-1 text-center">Language</th>
-                        <th class="col-2 text-center">Ground Truth</th>
-                        <th class="col-2 text-center">Fastspeech 2</th>
-                        <th class="col-2 text-center">Meta-TTS</th>
-                        <th class="col-2 text-center">ParrotTTS-CTE-Model (Ours)</th>
-                        <th class="col-2 text-center">ParrotTTS-PTE-Model (Ours)</th>
+                        <th class="col-3 text-center">Ground-truth</th>
+                        <th class="col-1 text-center">Lip2Wav</th>
+                        <th class="col-2 text-center">VCVTS</th>
+                        <th class="col-2 text-center">RobustL2S (Ours)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="flex-row">
-                        <td>The uncle claimed her. The husband resisted.</td>
                         <td class="text-center">
-                            English
+                            <video  width="280" height="280"  controls src="samples/comparison/s1_pgwl1s_gt.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/seen/gt/en_ljspeech_LJ011_0202.wav"></audio>
+                            <video  width="280" height="280"  controls src="samples/comparison/s1_pgwl1s_lip2wav.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/seen/fs2/en_ljspeech_LJ011_0202.wav"></audio>
+                            <video  width="280" height="280"  controls src="samples/comparison/s1_pgwl1s_prop_pwg.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/meta_trained/en_ljspeech_LJ011_0202.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/en_ljspeech_LJ011_0202.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/en_ljspeech_LJ011_0202.wav"></audio>
+                            <video controls src="samples/comparison/s1_pgwl1s_robustl2s.mov"></video>
                         </td>
                     </tr>
                     <tr class="flex-row">
-                        <td>
-                            When Oswald was arrested in the Texas Theatre, he was wearing a brown sport shirt with a hole in the right sleeve at the elbow.
+                        <td class="text-center">
+                            <video controls src="samples/comparison/s4_bbir6a_gt.webm"></video>
                         </td>
                         <td class="text-center">
-                            English
+                            <video controls src="samples/comparison/s4_bbir6a_lip2wav.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/seen/gt/en_ljspeech_LJ036_0054.wav"></audio>
+                            <video controls src="samples/comparison/s4_bbir6a_prop_pwg.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/seen/fs2/en_ljspeech_LJ036_0054.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/en_ljspeech_LJ036_0054.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/en_ljspeech_LJ036_0054.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/en_ljspeech_LJ036_0054.wav"></audio>
+                            <video controls src="samples/comparison/s4_bbir6a_robustl2s.mov"></video>
                         </td>
                     </tr>
                     <tr class="flex-row">
-                        <td>
-                            शिष्य सदा गुरु के पदचिह्नों पर चलता है, लेकिन उसका उद्देश्य केवल ज्ञान प्राप्त करना ही होता है।
+                        <td class="text-center">
+                            <video controls src="samples/comparison/s1_bbas3a_gt.webm"></video>
                         </td>
                         <td class="text-center">
-                            Hindi
+                            <video controls src="samples/comparison/s1_bbas3a_lip2wav.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/seen/gt/hi_m_education_02562.wav"></audio>
+                            <video controls src="samples/comparison/s1_bbas3a_prop_pwg.webm"></video>
                         </td>
                         <td class="text-center">
-                            <audio controls src="resources/seen/fs2/hi_m_education_02562.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/hi_m_education_02562.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/hi_m_education_02562.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/hi_m_education_02562.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>
-                            पाँचवीं पंचवर्षीय योजना में इसके कार्यक्षेत्र को और विस्तृत किया गया|
-                        </td>
-                        <td class="text-center">
-                            Hindi
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/gt/hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/fs2/hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/hi_m_books_00150.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/hi_m_books_00150.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>
-                            --En efecto--continuó el mentiroso--, y si aquel hombre eminente defendió con tanto calor la paz con los republicanos,
-                        </td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/gt/sp_tux_trafalgar_07_perezgaldos_f000100.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/fs2/sp_tux_trafalgar_07_perezgaldos_f000100.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/es_tux_trafalgar_07_perezgaldos_f000100.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/sp_tux_trafalgar_07_perezgaldos_f000100.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/sp_tux_trafalgar_07_perezgaldos_f000100.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>
-                            Entonces me dijeron que habiendo salido otra balandra a reconocer los restos del Rayo, y los de un navío francés que corrió igual suerte, me encontraron junto a Marcial, y pudieron salvarme la vida.
-                        </td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/gt/sp_tux_trafalgar_16_perezgaldos_f000018.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/fs2/sp_tux_trafalgar_16_perezgaldos_f000018.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/es_tux_trafalgar_16_perezgaldos_f000018.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/sp_tux_trafalgar_16_perezgaldos_f000018.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/sp_tux_trafalgar_16_perezgaldos_f000018.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>
-                            Je leur ai donc probablement fait manger non pas du bœuf, mais du cheval.
-                        </td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/gt/french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/fs2/french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/fr_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/french_siwis_neut_parl_s02_0545.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>
-                            n bon impôt, c’est un impôt stable, identifié, connu.
-                        </td>
-                        <td class="text-center">
-                            French
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/gt/french_siwis_neut_parl_s01_0520.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/fs2/french_siwis_neut_parl_s01_0520.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/fr_siwis_neut_parl_s01_0520.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/char/french_siwis_neut_parl_s01_0520.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/seen/phn/french_siwis_neut_parl_s01_0520.wav"></audio>
+                            <video controls src="samples/comparison/s1_bbs3a_robustl2s.mov"></video>
                         </td>
                     </tr>
                 </tbody>
@@ -573,491 +496,6 @@
         </div>
 
         <div class="row p-2"></div>
-
-        <div class="row">
-            <h3>Comparing samples for unseen speakers</h3>
-        </div>
-
-        <div class="row d-flex table-responsive overflow-auto">
-            <table class="table table-bordered m-3">
-                <!-- <caption class="text-center fs-4">Comparing samples for unseen speakers</caption> -->
-                <thead>
-                    <tr class="flex-row">
-                        <th class="col-3 text-center">Source Text</th>
-                        <th class="col-1 text-center">Language</th>
-                        <th class="col-2 text-center">Ground Truth</th>
-                        <th class="col-2 text-center">Fastspeech 2</th>
-                        <th class="col-2 text-center">Meta-TTS</th>
-                        <th class="col-2 text-center">ParrotTTS-CTE-Model (Ours)</th>
-                        <th class="col-2 text-center">ParrotTTS-PTE-Model (Ours)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="flex-row">
-                        <td>मेजर ध्यानचंद हे भारतीय हॉकीचे खेळाडू आणि संघनायक होते.</td>
-                        <td class="text-center">
-                            Marathi
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/gt/mr_f_books_00793.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/fs2/mr_f_books_00793.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/mr_f_books_00793.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/char/mr_f_books_00793.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/phn/mr_f_books_00793.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>भालचंद्र नेमाडे यांची हिंदू ही कादंबरी अपेक्षेपेक्षा फारच कमी खपली. हिंदूच्या एकूण चार कादंबऱ्यांची मालिका निघणार.</td>
-                        <td class="text-center">
-                            Marathi
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/gt/mr_f_general_00810.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/fs2/mr_f_general_00810.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/mr_f_general_00810.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/char/mr_f_general_00810.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/phn/mr_f_general_00810.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Aber nicht zu viel, stotterte die kleine Prezel, sonst bleibt ja garnichts mehr von mir übrig, und ich muß doch meine große Prezel suchen!</td>
-                        <td class="text-center">
-                            German
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/gt/ge_evak_grune_haus_05_f000033.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/fs2/ge_evak_grune_haus_05_f000033.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/de_eva_grune_haus_05_f000033.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/char/ge_evak_grune_haus_05_f000033.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/phn/ge_evak_grune_haus_05_f000033.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Wenn du jetzt nicht dein goldnes Kleid anhättest, müßtest du erfrieren;</td>
-                        <td class="text-center">
-                            German
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/gt/ge_evak_grune_haus_02_f000057.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/fs2/ge_evak_grune_haus_02_f000057.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/de_eva_grune_haus_02_f000057.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/char/ge_evak_grune_haus_02_f000057.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/phn/ge_evak_grune_haus_02_f000057.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>la música infinita del espacio.</td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/gt/sp_victorvillarraza_cuentosclasicosprimera_06_poe_f000180.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/fs2/sp_victorvillarraza_cuentosclasicosprimera_06_poe_f000180.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/es_victor_cuentosclasicosprimera_06_poe_f000180.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/char/sp_victorvillarraza_cuentosclasicosprimera_06_poe_f000180.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/phn/sp_victorvillarraza_cuentosclasicosprimera_06_poe_f000180.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Yo sí. Será porque estoy muy nerviosa.</td>
-                        <td class="text-center">
-                            Spanish
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/gt/sp_karensavage_angelina_60_delgado_f000105.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/fs2/sp_karensavage_angelina_60_delgado_f000105.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/meta_trained/es_karen_angelina_60_delgado_f000105.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/char/sp_karensavage_angelina_60_delgado_f000105.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/unseen/phn/sp_karensavage_angelina_60_delgado_f000105.wav"></audio>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="row p-2"></div>
-
-        <div class="row">
-            <h3>Demo of Single Speaker TTS</h3>
-        </div>
-
-        <div class="row d-flex table-responsive overflow-auto">
-            <table class="table table-bordered m-3">
-                <!-- <caption class="text-center fs-4">Comparing samples for unseen speakers</caption> -->
-                <thead>
-                    <tr class="flex-row">
-                        <th class="col-3 text-center">Source Text</th>
-                        <th class="col-1 text-center">SS-Tacotron2 (Baseline)</th>
-                        <th class="col-2 text-center">SS-FastSpeech2 (Baseline)</th>
-                        <th class="col-2 text-center">SS-FastSpeech2-SupASR (Baseline)</th>
-                        <th class="col-2 text-center">SS-Tacotron2-UnsupASR (Baseline)</th>
-                        <th class="col-2 text-center">SS-WavThruVec (Baseline)</th>
-                        <th class="col-2 text-center">SS-VQVAE (Baseline)</th>
-                        <th class="col-2 text-center">ParrotTTS: NAR-TTE (Ours-Main)</th>
-                        <th class="col-2 text-center">ParrotTTS: NAR-TTE (Ours-Half-Transcripts)</th>
-                        <th class="col-2 text-center">ParrotTTS: AR-TTE (Ours)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="flex-row">
-                        <td>Under the conditions referred to in the previous chapter.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_tacotron_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_fs2_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ASR_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_unasr_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_w2v_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/vqvae/LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_nar_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_halfnar_LJ002-0002.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ar_LJ002-0002.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>Modern printers understand this, but it is only practiced in the very best establishments.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_tacotron_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_fs2_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ASR_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_unasr_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_w2v_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/vqvae/LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_nar_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_halfnar_LJ001-0136.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ar_LJ001-0136.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>And therefore approximately one point six seconds after the president was shot in the head.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_tacotron_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_fs2_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ASR_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_unasr_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_w2v_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/vqvae/LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_nar_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_halfnar_LJ049-0048.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ar_LJ049-0048.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>A formal and thorough description of the responsibilities of the advance agent is now in preparation by the service.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_tacotron_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_fs2_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ASR_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_unasr_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_w2v_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/vqvae/LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_nar_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_halfnar_LJ050-0022.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ar_LJ050-0022.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>And investigative capabilities of the agencies now operating in this field but will continue.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_tacotron_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_fs2_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ASR_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_unasr_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_w2v_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/vqvae/LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_nar_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_halfnar_LJ050-0123.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ar_LJ050-0123.wav"></audio>
-                        </td>
-                    </tr>
-                    <tr class="flex-row">
-                        <td>The department hopes to design a practical system which will fully meet the needs of the protective research section of the secret service.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_tacotron_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_fs2_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ASR_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_unasr_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_w2v_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/vqvae/LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_nar_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_halfnar_LJ050-0158.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/SS_ar_LJ050-0158.wav"></audio>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="row p-2"></div>
-
-        <div class="row">
-            <h3>Demo of Multi-Speaker TTS</h3>
-        </div>
-
-        <div class="row d-flex table-responsive overflow-auto">
-            <table class="table table-bordered m-3">
-                <!-- <caption class="text-center fs-4">Comparing samples for unseen speakers</caption> -->
-                <thead>
-                    <tr class="flex-row">
-                        <th class="col-3 text-center">Source Text</th>
-                        <th class="col-1 text-center">GT-Mel+Vocoder</th>
-                        <th class="col-2 text-center">MS-FastSpeech2 (Baseline)</th>
-                        <th class="col-2 text-center">MS-FastSpeech2-SupASR (Baseline)</th>
-                        <th class="col-2 text-center">VC-FastSpeech2 (Baseline)</th>
-                        <th class="col-2 text-center">MS-WavThruVec (Baseline)</th>
-                        <th class="col-2 text-center">ParrotTTS: NAR-TTE (Ours-Main)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="flex-row">
-                        <td>Until recently she worked as a recruitment consultant in London.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_orig_p233_067_mic2.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_fs2_p233_067.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_ASR_p233_067.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_vc_p233_067.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_w2v_p233_01.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_tth_p233_067.wav"></audio>
-                        </td>  
-                    </tr>
-                    <tr class="flex-row">
-                        <td>No one in downing street can speak the language of the unions.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_orig_p246_138_mic2_gt.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_fs2_p246_138.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_ASR_p246_138.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_vc_p246_138.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_w2v_p246_05.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_tth_p246_138.wav"></audio>
-                        </td>  
-                    </tr>
-                    <tr class="flex-row">
-                        <td>The key player in this matter is now the prime minister.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_orig_p263_363_mic2_gt.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_fs2_p263_363.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_ASR_p263_363.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_vc_p263_363.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_w2v_p263_04.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_tth_p263_363.wav"></audio>
-                        </td>  
-                    </tr>
-                    <tr class="flex-row">
-                        <td>I tried to be cautious but its hard in that role.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_orig_p283_407_mic2_gt.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_fs2_p283_407.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_ASR_p283_407.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_vc_p283_407.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_w2v_p283_03.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_tth_p283_407.wav"></audio>
-                        </td>  
-                    </tr>
-                    <tr class="flex-row">
-                        <td>The advisors had some discussions but no conclusion was reached.</td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_orig_p286_339_mic2_gt.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_fs2_p286_339.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_ASR_p286_339.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_vc_p286_339.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_w2v_p286_02.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="resources/parrottts/MS_tth_p286_339.wav"></audio>
-                        </td>  
-                    </tr>
-                </tbody>
-            </table>
         
     </div>
 
